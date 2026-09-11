@@ -10,14 +10,14 @@
 
   <style>
     :root {
-      --bg-pink: #fde8f2;
-      --main-pink: #ff2383;
-      --dark-pink: #e0166d;
+      --bg-green: #e8fde8;
+      --main-green: #009945;
+      --dark-green: #008037;
       --text-main: #040404;
-      --text-muted: #555555;
+      --text-muted: #3f3f3f;
       --white: #ffffff;
       --card-bg: rgba(255, 255, 255, 0.95);
-      --border-color: #f3c2dc;
+      --border-color: #01db2c;
       --radius-large: 24px;
       --radius-md: 16px;
       --radius-sm: 12px;
@@ -31,7 +31,7 @@
     }
 
     body {
-      background: var(--bg-pink);
+      background: var(--bg-green);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -54,7 +54,7 @@
       left: 10%;
       width: 300px;
       height: 300px;
-      background: linear-gradient(135deg, #ff4dd0 0%, #ff2383 100%);
+      background: linear-gradient(135deg, #00bf3c 0%, #00b050 100%);
       border-radius: 50%;
       filter: blur(60px);
       opacity: 0.25;
@@ -69,7 +69,7 @@
       right: 5%;
       width: 350px;
       height: 350px;
-      background: linear-gradient(135deg, #ff4099 0%, #ff8dae 100%);
+      background: linear-gradient(135deg, #00c54f 0%, #0041e4 100%);
       border-radius: 50%;
       filter: blur(70px);
       opacity: 0.2;
@@ -89,28 +89,39 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 5%;
+      padding: 15px 5%;
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(255, 35, 131, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 176, 80, 0.06);
       transition: all 0.3s ease;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-weight: 900;
-      font-size: 22px;
+      font-size: 20px;
       color: #000;
       letter-spacing: 0.5px;
     }
 
+    /* লোগো ইমেজ স্টাইল */
+    .brand img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
     .brand span {
-      color: var(--main-pink);
+      color: var(--main-green);
     }
 
     .register-btn {
-      background: var(--main-pink);
+      background: var(--main-green);
       color: white;
       border: none;
       padding: 10px 24px;
@@ -118,14 +129,14 @@
       font-weight: 700;
       font-size: 14px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 176, 80, 0.3);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .register-btn:hover {
-      background: var(--dark-pink);
+      background: var(--dark-green);
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 6px 20px rgba(255, 35, 131, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 176, 80, 0.4);
     }
 
     /* Layout */
@@ -145,13 +156,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
-      box-shadow: 0 20px 50px rgba(255, 35, 131, 0.1);
+      box-shadow: 0 20px 50px rgba(0, 176, 80, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.9);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .product:hover {
-      box-shadow: 0 25px 60px rgba(255, 35, 131, 0.15);
+      box-shadow: 0 25px 60px rgba(0, 176, 80, 0.15);
     }
 
     /* =========================================
@@ -167,8 +178,8 @@
       position: relative;
       border-radius: var(--radius-large);
       overflow: hidden;
-      background: #fdf2f7;
-      box-shadow: 0 10px 30px rgba(255, 35, 131, 0.15);
+      background: #f2fdf5;
+      box-shadow: 0 10px 30px rgba(0, 176, 80, 0.15);
       border: 4px solid white;
     }
 
@@ -204,7 +215,7 @@
       top: 50%;
       transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.85);
-      color: var(--main-pink);
+      color: var(--main-green);
       border: none;
       width: 45px;
       height: 45px;
@@ -221,7 +232,7 @@
     }
 
     .nav-btn:hover {
-      background: var(--main-pink);
+      background: var(--main-green);
       color: white;
       transform: translateY(-50%) scale(1.1);
     }
@@ -250,7 +261,7 @@
     }
 
     .dot.active {
-      background: var(--main-pink);
+      background: var(--main-green);
       width: 24px;
       border-radius: 6px;
     }
@@ -268,14 +279,14 @@
       font-weight: 900;
       line-height: 1.1;
       margin-bottom: 12px;
-      color: var(--main-pink);
+      color: var(--main-green);
       text-transform: uppercase;
       letter-spacing: -1px;
     }
 
     .price {
       font-size: 32px;
-      color: var(--main-pink);
+      color: var(--main-green);
       font-weight: 900;
       margin-bottom: 20px;
       display: flex;
@@ -285,7 +296,7 @@
 
     .old-price {
       font-size: 18px;
-      color: #aaa;
+      color: #ff3838;
       text-decoration: line-through;
       font-weight: 600;
     }
@@ -296,28 +307,28 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       overflow: hidden;
-      background: #fffafa;
+      background: #fafafa;
       transition: box-shadow 0.3s ease;
     }
 
     .accordion:hover {
-      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 176, 80, 0.08);
     }
 
     .accordion-header {
-      background: #fce4ee;
+      background: #e2fce8;
       padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
       font-weight: 700;
-      color: var(--main-pink);
+      color: var(--main-green);
       transition: background 0.3s ease;
     }
 
     .accordion-header:hover {
-      background: #fbd6e4;
+      background: #cef8d8;
     }
 
     .accordion-icon {
@@ -355,7 +366,7 @@
     .faq-title {
       font-size: 16px;
       font-weight: 800;
-      color: var(--main-pink);
+      color: var(--main-green);
       margin-bottom: 12px;
       text-transform: uppercase;
     }
@@ -365,16 +376,16 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       overflow: hidden;
-      background: #fffafa;
+      background: #fafafa;
       transition: box-shadow 0.3s ease;
     }
 
     .faq-item:hover {
-      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 176, 80, 0.08);
     }
 
     .faq-question {
-      background: #fce4ee;
+      background: #e2fce8;
       padding: 14px 18px;
       display: flex;
       justify-content: space-between;
@@ -382,12 +393,12 @@
       cursor: pointer;
       font-weight: 700;
       font-size: 14px;
-      color: var(--main-pink);
+      color: var(--main-green);
       transition: background 0.3s ease;
     }
 
     .faq-question:hover {
-      background: #fbd6e4;
+      background: #cef8d8;
     }
 
     .faq-icon {
@@ -438,8 +449,8 @@
     }
 
     select:focus, input:focus {
-      border-color: var(--main-pink);
-      box-shadow: 0 0 0 5px rgba(255, 35, 131, 0.12);
+      border-color: var(--main-green);
+      box-shadow: 0 0 0 5px rgba(0, 176, 80, 0.12);
       transform: translateY(-1px);
     }
 
@@ -455,8 +466,8 @@
       height: 44px;
       border: none;
       border-radius: var(--radius-sm);
-      background: #ffe0ed;
-      color: var(--main-pink);
+      background: #e0fae7;
+      color: var(--main-green);
       font-size: 22px;
       font-weight: bold;
       cursor: pointer;
@@ -464,7 +475,7 @@
     }
 
     .quantity button:hover {
-      background: var(--main-pink);
+      background: var(--main-green);
       color: white;
       transform: scale(1.05);
     }
@@ -479,14 +490,14 @@
     .order-box {
       padding: 24px;
       border-radius: var(--radius-md);
-      background: #fff5f9;
+      background: #f2fcf5;
       border: 1px solid var(--border-color);
       transition: box-shadow 0.3s ease;
     }
 
     .order-box h2 {
       margin-bottom: 16px;
-      color: var(--main-pink);
+      color: var(--main-green);
       font-size: 18px;
       font-weight: 800;
     }
@@ -501,12 +512,12 @@
       margin-top: 15px;
       border: none;
       border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, #ff4099 0%, #ff2383 100%);
+      background: linear-gradient(135deg, #40ff8d 0%, #00b050 100%);
       color: white;
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(255, 35, 131, 0.35);
+      box-shadow: 0 6px 20px rgba(0, 176, 80, 0.35);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -516,15 +527,15 @@
     }
 
     @keyframes pulseGlow {
-      0% { box-shadow: 0 0 0 0 rgba(255, 35, 131, 0.4); }
-      70% { box-shadow: 0 0 0 12px rgba(255, 35, 131, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 35, 131, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(0, 176, 80, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(0, 176, 80, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 176, 80, 0); }
     }
 
     .order-btn:hover {
-      background: linear-gradient(135deg, #ff2383 0%, #e0166d 100%);
+      background: linear-gradient(135deg, #00b050 0%, #008037 100%);
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(255, 35, 131, 0.5);
+      box-shadow: 0 10px 25px rgba(0, 176, 80, 0.5);
     }
 
     .total-box {
@@ -547,7 +558,7 @@
     }
 
     .total span {
-      color: var(--main-pink);
+      color: var(--main-green);
     }
 
     .delivery-info {
@@ -596,9 +607,8 @@
                      0 0 30px rgba(255, 255, 255, 0.6);
       }
     }
-    /* =========================================
-       SHOPPING POLICY POPUP STYLES
-    ========================================= */
+
+    /* SHOPPING POLICY POPUP STYLES */
     .popup-overlay {
       position: fixed;
       top: 0;
@@ -638,7 +648,7 @@
     }
 
     .popup-box h3 {
-      color: var(--main-pink);
+      color: var(--main-green);
       font-size: 22px;
       font-weight: 800;
       margin-bottom: 15px;
@@ -694,13 +704,13 @@
     }
 
     .btn-agree {
-      background: var(--main-pink);
+      background: var(--main-green);
       color: white;
-      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 176, 80, 0.3);
     }
 
     .btn-agree:hover {
-      background: var(--dark-pink);
+      background: var(--dark-green);
       transform: translateY(-2px);
     }
   </style>
@@ -709,59 +719,53 @@
 <body>
 
 <header>
-  <div class="brand">CHINA <span>SHOP LTD</span></div>
+  <!-- লোগো এবং নাম (এখানে logo.png এর জায়গায় আপনার লোগো ফাইলের নাম বসাবেন) -->
+  <div class="brand">
+    <img src="imglogo.PNG" alt="Logo">
+    CHINA SHOP<span>LTD</span>
+  </div>
   <button class="register-btn" onclick="document.querySelector('.order-box').scrollIntoView({behavior: 'smooth'});">Order Now</button>
 </header>
 
 <div class="container">
   <div class="product">
 
-    <!-- =========================================
-         SLIDER SECTION (IMAGE & VIDEO)
-    ========================================= -->
+    <!-- SLIDER SECTION -->
     <div class="slider-section">
       <div class="slider-container">
         
         <div class="slides" id="slideTrack">
-          <!-- Slide 1 (Image) -->
           <div class="slide">
             <img src="img1.JPG" alt="Product Image 1">
           </div>
           
-          <!-- Slide 2 (Image) -->
           <div class="slide">
             <img src="img2.JPG" alt="Product Image 2">
           </div>
           
-          <!-- Slide 3 (Video) -->
           <div class="slide">
             <video controls autoplay muted loop playsinline>
               <source src="vid1.mp4" type="video/mp4">
             </video>
           </div>
-          
-           <!-- Slide 4 (Image) -->
-          <div class="slide">
-            <img src="" alt="Product Image 3">
-          </div>
-        </div>
 
-        <!-- Navigation Buttons -->
+          <div class="slide">
+            <video controls autoplay muted loop playsinline>
+              <source src="vid2.MP4" type="video/mp4">
+            </video>
+          </div>
+          </div>
+
         <button class="nav-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
         <button class="nav-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
 
-        <!-- Dots Pagination -->
-        <div class="dots-container" id="dotsContainer">
-          <!-- Dots will be generated automatically by JavaScript -->
-        </div>
+        <div class="dots-container" id="dotsContainer"></div>
 
       </div>
     </div>
 
 
-    <!-- =========================================
-         PRODUCT INFORMATION & ORDER FORM
-    ========================================= -->
+    <!-- PRODUCT INFORMATION & ORDER FORM -->
     <div class="product-info">
       <h1>DIAMOND BRACELET <sup><span class="glow-diamond">💎</span></sup></h1>
 
@@ -770,7 +774,7 @@
         <span class="old-price">৳800</span>
       </div>
 
-      <!-- TAP TO EXPAND DESCRIPTION BOX -->
+      <!-- ACCORDION -->
       <div class="accordion">
         <div class="accordion-header" onclick="toggleAccordion()">
           <span>📄 View Product Details</span>
@@ -792,7 +796,7 @@
             <li>⚖️ ওজন: প্রায় ৩৫ গ্রাম (±৩ গ্রাম)</li>
             <li>📦 প্যাকেজিং: ১টি ব্রেসলেট + OPP ব্যাগ</li> <br>
           </ul>
-
+        
           <p>
             <strong>💫 স্টাইলিশ লুক + ঝকঝকে ক্রিস্টাল + ট্রেন্ডি Cuban Chain</strong> —
             সব মিলিয়ে আপনার কালেকশনে রাখার মতো একটি ফ্যাশনেবল ব্রেসলেট।
@@ -804,36 +808,33 @@
       <div class="faq-section">
         <div class="faq-title">❓ সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</div>
 
-        <!-- FAQ 1 -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>ডেলিভারি পেতে কত দিন সময় লাগবে?</span>
+            <span>ডেলিভারি পেতে কত দিন সময় লাগবে?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>ফেনীর ভেতরে সাধারণত ১-২ দিনের মধ্যে এবং ফেনীর বাইরে (সারাদেশে) স্টেডফাস্ট কুরিয়ারের মাধ্যমে ২-৩ দিনের মধ্যে ডেলিভারি পেয়ে যাবেন।</p>
+            <p> আপনার পণ্য ডেলিভারি হতে সাধারণত ২–৪ দিন সময় লাগে। ৪ দিনের মধ্যে পণ্য না পেলে আমাদের জানাবেন। </p>
           </div>
         </div>
 
-        <!-- FAQ 2 -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>পণ্য হাতে পেয়ে চেক করে নেওয়ার সুযোগ আছে কি?</span>
+            <span> রিটার্ন / এক্সচেঞ্জ / রিফান্ড </span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>হ্যাঁ, ডেলিভারি ম্যানের সামনে পণ্য চেক করে বুঝে নেওয়ার সুযোগ রয়েছে। কোনো সমস্যা থাকলে ডেলিভারি ম্যানের কাছেই রিটার্ন করতে পারবেন।</p>
+            <p> পণ্য ড্যামেজড বা ত্রুটিপূর্ণ না হলে কোনো এক্সচেঞ্জ বা রিফান্ড দেওয়া হবে না। পণ্য হাতে পাওয়ার ২৪ ঘণ্টার মধ্যে ড্যামেজ বা ত্রুটির বিষয়টি আমাদের জানাতে হবে। তবে ডেলিভারি নেওয়ার সময়ই পণ্যটি ভালোভাবে চেক করার জন্য আমরা বিশেষভাবে অনুরোধ করছি। </p>
           </div>
         </div>
 
-        <!-- FAQ 3 -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>ডেলিভারি চার্জ কত?</span>
+            <span> কোনো পণ্য অনুপস্থিত থাকলে </span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-answer">
-            <p>ফেনীর ভেতরে ডেলিভারি চার্জ ৬০ টাকা এবং ফেনীর বাইরে সমগ্র বাংলাদেশে ১৩৫ টাকা (স্টেডফাস্ট কুরিয়ার)।</p>
+            <p>অর্ডারের কোনো পণ্য মিসিং থাকলে প্রয়োজন অনুযায়ী আমরা রিফান্ড অথবা এক্সচেঞ্জ করে দেব। শুধু বিষয়টি আমাদের জানিয়ে দিন। </p>
           </div>
         </div>
       </div>
@@ -891,9 +892,6 @@
 <iframe name="hiddenFrame" style="display:none;"></iframe>
 
 <script>
-/* =====================================================
-   SLIDER (CAROUSEL) SCRIPT
-===================================================== */
 let currentIndex = 0;
 const track = document.getElementById("slideTrack");
 const slides = document.querySelectorAll(".slide");
@@ -927,9 +925,6 @@ function goToSlide(index) {
   updateSlider();
 }
 
-/* =====================================================
-   ACCORDION (DESCRIPTION BOX) SCRIPT
-===================================================== */
 function toggleAccordion() {
   const content = document.getElementById("descContent");
   const icon = document.querySelector(".accordion-icon");
@@ -945,9 +940,6 @@ function toggleAccordion() {
   }
 }
 
-/* =====================================================
-   FAQ TOGGLE SCRIPT
-===================================================== */
 function toggleFaq(element) {
   const answer = element.nextElementSibling;
   const icon = element.querySelector(".faq-icon");
@@ -963,9 +955,6 @@ function toggleFaq(element) {
   }
 }
 
-/* =====================================================
-   CART & CHECKOUT LOGIC
-===================================================== */
 const productPrice = 370;
 const insideFeni = 60;
 const outsideFeni = 135;
@@ -1013,10 +1002,7 @@ function updateTotal() {
 
 document.getElementById("area").addEventListener("change", updateTotal);
 
-/* =====================================================
-   POLICY POPUP & ORDER LOGIC
-===================================================== */
-let pendingOrderData = null; // অর্ডারের তথ্য টেম্পোরারি ধরে রাখার জন্য
+let pendingOrderData = null;
 
 function placeOrder() {
   const name = document.getElementById("name").value.trim();
@@ -1027,16 +1013,12 @@ function placeOrder() {
   const quantity = parseInt(document.getElementById("quantity").value) || 1;
   const total = parseInt(document.getElementById("total").innerText) || 0;
 
-  // ভ্যালিডেশন চেক
   if (!name) { alert("Please enter your name."); return; }
   if (!phone) { alert("Please enter your phone number."); return; }
   if (!address) { alert("Please enter your delivery address."); return; }
   if (!area) { alert("Please select delivery area."); return; }
 
-  // তথ্যগুলো অবজেক্ট আকারে সেভ করে রাখা
   pendingOrderData = { name, phone, address, area, product: "Diamond Bracelet", color, quantity, total };
-
-  // পলিসি পপ-আপ ওপেন করা
   document.getElementById("policyPopup").classList.add("active");
 }
 
@@ -1046,9 +1028,7 @@ function closePolicyPopup() {
 }
 
 function confirmAndSubmitOrder() {
-  // পপ-আপ বন্ধ করা
   document.getElementById("policyPopup").classList.remove("active");
-
   if (!pendingOrderData) return;
 
   const button = document.querySelector(".order-btn");
@@ -1071,9 +1051,8 @@ function confirmAndSubmitOrder() {
   form.submit();
 
   setTimeout(() => {
-    alert("✅ Order submitted successfully!\n\nআপনার order আমাদের কাছে সফলভাবে জমা হয়েছে।");
+    alert("✅ Order submitted successfully!\n\nআপনার order আমাদের কাছে সফলভাবে জমা হয়েছে।");
     
-    // ফর্ম রিসেট করা
     document.getElementById("name").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("address").value = "";
@@ -1088,21 +1067,23 @@ function confirmAndSubmitOrder() {
   }, 1500);
 }
 </script>
+
 <!-- SHOPPING POLICY POPUP MODAL -->
-  <div class="popup-overlay" id="policyPopup">
-    <div class="popup-box">
-      <h3>🛍️ শপিং ও রিটার্ন পলিসি</h3>
-      <div class="policy-content">
-        <p><strong>১. ডেলিভারি চার্জ:</strong> ফেনীর ভেতরে ৬০ টাকা এবং ফেনীর বাইরে সমগ্র বাংলাদেশে ১৩৫ টাকা (স্টেডফাস্ট কুরিয়ার) প্রযোজ্য।</p><br>
-        <p><strong>২. পণ্য চেক করে নেওয়ার সুযোগ:</strong> ডেলিভারি ম্যানের সামনে পণ্য চেক করে বুঝে নিতে হবে। কোনো ত্রুটি বা সমস্যা থাকলে ডেলিভারি ম্যানের মাধ্যমেই রিটার্ন করতে পারবেন।</p><br>
-        <p><strong>৩. ক্যাশ অন ডেলিভারি:</strong> অর্ডার কনফার্ম করার পর আপনার দেওয়া ঠিকানায় পণ্য পৌঁছে দেওয়া হবে এবং ক্যাশ অন ডেলিভারিতে মূল্য পরিশোধ করতে হবে।</p><br>
-        <p><strong>৪. তথ্য সুরক্ষা:</strong> আপনার দেওয়া নাম, ফোন নম্বর এবং ঠিকানা সম্পূর্ণ সুরক্ষিত থাকবে এবং শুধুমাত্র ডেলিভারির কাজে ব্যবহার করা হবে।</p>
-      </div>
-      <div class="popup-actions">
-        <button type="button" class="popup-btn btn-cancel" onclick="closePolicyPopup()">ফিরে যান</button>
-        <button type="button" class="popup-btn btn-agree" onclick="confirmAndSubmitOrder()">I Agree & Order</button>
-      </div>
+<div class="popup-overlay" id="policyPopup">
+  <div class="popup-box">
+    <h3>🛍️ শপিং ও রিটার্ন পলিসি</h3>
+    <div class="policy-content">
+      <p><strong>১. ডেলিভারি চার্জ:</strong> ফেনীর ভেতরে ৬০ টাকা এবং ফেনীর বাইরে সমগ্র বাংলাদেশে ১৩৫ টাকা (স্টেডফাস্ট কুরিয়ার) প্রযোজ্য।</p><br>
+      <p><strong>২. পণ্য চেক করে নেওয়ার সুযোগ:</strong> ডেলিভারি ম্যানের সামনে পণ্য চেক করে বুঝে নিতে হবে। কোনো ত্রুটি বা সমস্যা থাকলে ডেলিভারি ম্যানের মাধ্যমেই রিটার্ন করতে পারবেন।</p><br>
+      <p><strong>৩. ক্যাশ অন ডেলিভারি:</strong> অর্ডার কনফার্ম করার পর আপনার দেওয়া ঠিকানায় পণ্য পৌঁছে দেওয়া হবে এবং ক্যাশ অন ডেলিভারিতে মূল্য পরিশোধ করতে হবে।</p><br>
+      <p><strong>৪. তথ্য সুরক্ষা:</strong> আপনার দেওয়া নাম, ফোন নম্বর এবং ঠিকানা সম্পূর্ণ সুরক্ষিত থাকবে এবং শুধুমাত্র ডেলিভারির কাজে ব্যবহার করা হবে।</p>
+    </div>
+    <div class="popup-actions">
+      <button type="button" class="popup-btn btn-cancel" onclick="closePolicyPopup()">ফিরে যান</button>
+      <button type="button" class="popup-btn btn-agree" onclick="confirmAndSubmitOrder()">I Agree & Order</button>
     </div>
   </div>
+</div>
+
 </body>
 </html>
