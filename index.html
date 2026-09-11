@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> DIAMOND BRACELET </title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-pink: #fde8f2;
+      --main-pink: #ff2383;
+      --dark-pink: #e0166d;
+      --text-main: #040404;
+      --text-muted: #555555;
+      --white: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --border-color: #f3c2dc;
+      --radius-large: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: var(--bg-pink);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      animation: fadeInPage 0.8s ease-out;
+    }
+
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Decorative Background with Soft Floating Animation */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #ff4dd0 0%, #ff2383 100%);
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.25;
+      z-index: 0;
+      animation: floatBlob 8s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      width: 350px;
+      height: 350px;
+      background: linear-gradient(135deg, #ff4099 0%, #ff8dae 100%);
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.2;
+      z-index: 0;
+      animation: floatBlob 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, 20px) scale(1.08); }
+    }
+
+    /* Navbar */
+    header {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(255, 35, 131, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 22px;
+      color: #000;
+      letter-spacing: 0.5px;
+    }
+
+    .brand span {
+      color: var(--main-pink);
+    }
+
+    .register-btn {
+      background: var(--main-pink);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .register-btn:hover {
+      background: var(--dark-pink);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(255, 35, 131, 0.4);
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      width: 92%;
+      margin: 40px auto;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .product {
+      background: var(--card-bg);
+      border-radius: var(--radius-large);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      box-shadow: 0 20px 50px rgba(255, 35, 131, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .product:hover {
+      box-shadow: 0 25px 60px rgba(255, 35, 131, 0.15);
+    }
+
+    /* =========================================
+       MEDIA SLIDER (Images & Videos)
+    ========================================= */
+    .slider-section {
+      width: 100%;
+      position: relative;
+    }
+
+    .slider-container {
+      width: 100%;
+      position: relative;
+      border-radius: var(--radius-large);
+      overflow: hidden;
+      background: #fdf2f7;
+      box-shadow: 0 10px 30px rgba(255, 35, 131, 0.15);
+      border: 4px solid white;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      height: 500px;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide img, .slide video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .slide img:hover {
+      transform: scale(1.03);
+    }
+
+    .slide video {
+      background: #000;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--main-pink);
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-btn:hover {
+      background: var(--main-pink);
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn { left: 15px; }
+    .next-btn { right: 15px; }
+
+    .dots-container {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .dot.active {
+      background: var(--main-pink);
+      width: 24px;
+      border-radius: 6px;
+    }
+
+    /* =========================================
+       PRODUCT INFO & ACCORDION
+    ========================================= */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-info h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--main-pink);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .price {
+      font-size: 32px;
+      color: var(--main-pink);
+      font-weight: 900;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .old-price {
+      font-size: 18px;
+      color: #aaa;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    /* Accordion Description Box */
+    .accordion {
+      margin-bottom: 25px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #fffafa;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .accordion:hover {
+      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.08);
+    }
+
+    .accordion-header {
+      background: #fce4ee;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--main-pink);
+      transition: background 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: #fbd6e4;
+    }
+
+    .accordion-icon {
+      font-size: 20px;
+      font-weight: bold;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      background: white;
+    }
+
+    .accordion-content.active {
+      max-height: 500px;
+      padding: 20px;
+    }
+
+    .accordion-content p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    /* =========================================
+       FAQ SECTION STYLES
+    ========================================= */
+    .faq-section {
+      margin-bottom: 25px;
+    }
+
+    .faq-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--main-pink);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #fffafa;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.08);
+    }
+
+    .faq-question {
+      background: #fce4ee;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--main-pink);
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: #fbd6e4;
+    }
+
+    .faq-icon {
+      font-size: 18px;
+      font-weight: bold;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      background: white;
+    }
+
+    .faq-answer.active {
+      max-height: 300px;
+      padding: 16px 18px;
+    }
+
+    .faq-answer p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Form Elements */
+    .option-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: #444;
+      margin: 10px 0 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      outline: none;
+      background: white;
+      color: var(--text-main);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    select:focus, input:focus {
+      border-color: var(--main-pink);
+      box-shadow: 0 0 0 5px rgba(255, 35, 131, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .quantity button {
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: #ffe0ed;
+      color: var(--main-pink);
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .quantity button:hover {
+      background: var(--main-pink);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    #quantity {
+      width: 70px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Order Box */
+    .order-box {
+      padding: 24px;
+      border-radius: var(--radius-md);
+      background: #fff5f9;
+      border: 1px solid var(--border-color);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .order-box h2 {
+      margin-bottom: 16px;
+      color: var(--main-pink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .order-btn {
+      width: 100%;
+      padding: 18px;
+      margin-top: 15px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #ff4099 0%, #ff2383 100%);
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 35, 131, 0.35);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(255, 35, 131, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(255, 35, 131, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 35, 131, 0); }
+    }
+
+    .order-btn:hover {
+      background: linear-gradient(135deg, #ff2383 0%, #e0166d 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 35, 131, 0.5);
+    }
+
+    .total-box {
+      margin-top: 15px;
+      padding: 15px;
+      background: white;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s ease;
+    }
+
+    .total-box:hover {
+      transform: scale(1.01);
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: 800;
+      color: #222;
+    }
+
+    .total span {
+      color: var(--main-pink);
+    }
+
+    .delivery-info {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .product {
+        grid-template-columns: 1fr;
+        padding: 25px 20px;
+        gap: 30px;
+      }
+
+      .slider-section {
+        order: -1; 
+      }
+
+      .slides {
+        height: 380px;
+      }
+
+      .product-info h1 {
+        font-size: 32px;
+      }
+    }
+
+    .glow-diamond {
+      display: inline-block;
+      animation: diamondGlow 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes diamondGlow {
+      0% {
+        transform: scale(1);
+        text-shadow: 0 0 2px rgba(0, 191, 255, 0.4), 
+                     0 0 5px rgba(0, 191, 255, 0.2);
+      }
+      100% {
+        transform: scale(1.15);
+        text-shadow: 0 0 10px rgba(0, 191, 255, 0.9), 
+                     0 0 20px rgba(135, 206, 250, 0.8), 
+                     0 0 30px rgba(255, 255, 255, 0.6);
+      }
+    }
+    /* =========================================
+       SHOPPING POLICY POPUP STYLES
+    ========================================= */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-box {
+      background: white;
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: var(--radius-large);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--border-color);
+    }
+
+    .popup-overlay.active .popup-box {
+      transform: translateY(0);
+    }
+
+    .popup-box h3 {
+      color: var(--main-pink);
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .policy-content {
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-right: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: #fafafa;
+    }
+
+    .policy-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .policy-content::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 10px;
+    }
+
+    .popup-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .popup-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-cancel {
+      background: #eee;
+      color: #555;
+    }
+
+    .btn-cancel:hover {
+      background: #ddd;
+    }
+
+    .btn-agree {
+      background: var(--main-pink);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 35, 131, 0.3);
+    }
+
+    .btn-agree:hover {
+      background: var(--dark-pink);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">CHINA <span>SHOP LTD</span></div>
+  <button class="register-btn" onclick="document.querySelector('.order-box').scrollIntoView({behavior: 'smooth'});">Order Now</button>
+</header>
+
+<div class="container">
+  <div class="product">
+
+    <!-- =========================================
+         SLIDER SECTION (IMAGE & VIDEO)
+    ========================================= -->
+    <div class="slider-section">
+      <div class="slider-container">
+        
+        <div class="slides" id="slideTrack">
+          <!-- Slide 1 (Image) -->
+          <div class="slide">
+            <img src="img1.JPG" alt="Product Image 1">
+          </div>
+          
+          <!-- Slide 2 (Image) -->
+          <div class="slide">
+            <img src="img2.JPG" alt="Product Image 2">
+          </div>
+          
+          <!-- Slide 3 (Video) -->
+          <div class="slide">
+            <video controls autoplay muted loop playsinline>
+              <source src="vid1.mp4" type="video/mp4">
+            </video>
+          </div>
+          
+           <!-- Slide 4 (Image) -->
+          <div class="slide">
+            <img src="" alt="Product Image 3">
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button class="nav-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="nav-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+
+        <!-- Dots Pagination -->
+        <div class="dots-container" id="dotsContainer">
+          <!-- Dots will be generated automatically by JavaScript -->
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- =========================================
+         PRODUCT INFORMATION & ORDER FORM
+    ========================================= -->
+    <div class="product-info">
+      <h1>DIAMOND BRACELET <sup><span class="glow-diamond">💎</span></sup></h1>
+
+      <div class="price">
+        ৳370
+        <span class="old-price">৳800</span>
+      </div>
+
+      <!-- TAP TO EXPAND DESCRIPTION BOX -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion()">
+          <span>📄 View Product Details</span>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content" id="descContent">
+          <p>
+            আপনার স্টাইলকে আরও <strong>স্টাইলিশ, প্রিমিয়াম ও আকর্ষণীয়</strong> করে তুলতে
+            নিয়ে আসুন এই <strong>Full Crystal Stone Bracelet</strong>।
+            ঝকঝকে ক্রিস্টাল স্টোনের ডিজাইন এটিকে করে তুলেছে
+            পার্টি, আড্ডা কিংবা দৈনন্দিন ফ্যাশনের জন্য দারুণ একটি অ্যাক্সেসরি।
+          </p> <br>
+
+          <h3>💎 পণ্যের বৈশিষ্ট্য</h3>
+          <ul>
+            <li>✨ সম্পূর্ণ ক্রিস্টাল স্টোন ডিজাইন</li>
+            <li>⛓️ স্টাইলিশ Cuban Chain Design</li>    
+            <li>🌟 Silver Plating </li>
+            <li>⚖️ ওজন: প্রায় ৩৫ গ্রাম (±৩ গ্রাম)</li>
+            <li>📦 প্যাকেজিং: ১টি ব্রেসলেট + OPP ব্যাগ</li> <br>
+          </ul>
+
+          <h3>⚠️ যত্নের নির্দেশনা</h3>
+          <ul>
+            <li>🚿 গোসলের সময় ব্রেসলেটটি খুলে রাখুন।</li>
+            <li>💧 পানি ও অতিরিক্ত আর্দ্রতা থেকে দূরে রাখুন।</li>
+            <li>🧴 পারফিউম, লোশন ও কেমিক্যালের সরাসরি সংস্পর্শ এড়িয়ে চলুন।</li>
+          </ul> <br>
+
+          <p>
+            <strong>💫 স্টাইলিশ লুক + ঝকঝকে ক্রিস্টাল + ট্রেন্ডি Cuban Chain</strong> —
+            সব মিলিয়ে আপনার কালেকশনে রাখার মতো একটি ফ্যাশনেবল ব্রেসলেট।
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ SECTION -->
+      <div class="faq-section">
+        <div class="faq-title">❓ সচরাচর জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</div>
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>ডেলিভারি পেতে কত দিন সময় লাগবে?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>ফেনীর ভেতরে সাধারণত ১-২ দিনের মধ্যে এবং ফেনীর বাইরে (সারাদেশে) স্টেডফাস্ট কুরিয়ারের মাধ্যমে ২-৩ দিনের মধ্যে ডেলিভারি পেয়ে যাবেন।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>পণ্য হাতে পেয়ে চেক করে নেওয়ার সুযোগ আছে কি?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>হ্যাঁ, ডেলিভারি ম্যানের সামনে পণ্য চেক করে বুঝে নেওয়ার সুযোগ রয়েছে। কোনো সমস্যা থাকলে ডেলিভারি ম্যানের কাছেই রিটার্ন করতে পারবেন।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>ডেলিভারি চার্জ কত?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>ফেনীর ভেতরে ডেলিভারি চার্জ ৬০ টাকা এবং ফেনীর বাইরে সমগ্র বাংলাদেশে ১৩৫ টাকা (স্টেডফাস্ট কুরিয়ার)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLOR -->
+      <div class="option-title">Select Color</div>
+      <select id="color">    
+        <option value="Silver Diamond">Silver Diamond</option>
+      </select>
+
+      <!-- QUANTITY -->
+      <div class="option-title">Quantity</div>
+      <div class="quantity">
+        <button type="button" onclick="decreaseQty()">−</button>
+        <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
+        <button type="button" onclick="increaseQty()">+</button>
+      </div>
+
+      <!-- ORDER FORM -->
+      <div class="order-box">
+        <h2>Place Your Order</h2>
+
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your Name">
+        </div>
+
+        <div class="form-group">
+          <input type="tel" id="phone" placeholder="Phone Number">
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="address" placeholder="Full Delivery Address">
+        </div>
+
+        <div class="form-group">
+          <select id="area">
+            <option value="">Select Delivery Area</option>
+            <option value="Inside Feni">Inside Feni - ৳60</option>
+            <option value="Outside Feni">Outside Feni - ৳135 (SteadFast)</option>
+          </select>
+        </div>
+
+        <div class="total-box">
+          <div class="total">Total: ৳<span id="total">370</span></div>
+          <div class="delivery-info" id="deliveryText">Delivery charge will be added after selecting area.</div>
+        </div>
+
+        <button type="button" class="order-btn" onclick="placeOrder()">🛒 ORDER NOW</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<iframe name="hiddenFrame" style="display:none;"></iframe>
+
+<script>
+/* =====================================================
+   SLIDER (CAROUSEL) SCRIPT
+===================================================== */
+let currentIndex = 0;
+const track = document.getElementById("slideTrack");
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.getElementById("dotsContainer");
+
+slides.forEach((_, index) => {
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+  if (index === 0) dot.classList.add("active");
+  dot.addEventListener("click", () => goToSlide(index));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dot");
+
+function updateSlider() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[currentIndex].classList.add("active");
+}
+
+function moveSlide(direction) {
+  currentIndex += direction;
+  if (currentIndex < 0) currentIndex = slides.length - 1;
+  if (currentIndex >= slides.length) currentIndex = 0;
+  updateSlider();
+}
+
+function goToSlide(index) {
+  currentIndex = index;
+  updateSlider();
+}
+
+/* =====================================================
+   ACCORDION (DESCRIPTION BOX) SCRIPT
+===================================================== */
+function toggleAccordion() {
+  const content = document.getElementById("descContent");
+  const icon = document.querySelector(".accordion-icon");
+  
+  if (content.classList.contains("active")) {
+    content.classList.remove("active");
+    icon.innerText = "+";
+    icon.style.transform = "rotate(0deg)";
+  } else {
+    content.classList.add("active");
+    icon.innerText = "−";
+    icon.style.transform = "rotate(180deg)";
+  }
+}
+
+/* =====================================================
+   FAQ TOGGLE SCRIPT
+===================================================== */
+function toggleFaq(element) {
+  const answer = element.nextElementSibling;
+  const icon = element.querySelector(".faq-icon");
+  
+  if (answer.classList.contains("active")) {
+    answer.classList.remove("active");
+    icon.innerText = "+";
+    icon.style.transform = "rotate(0deg)";
+  } else {
+    answer.classList.add("active");
+    icon.innerText = "−";
+    icon.style.transform = "rotate(180deg)";
+  }
+}
+
+/* =====================================================
+   CART & CHECKOUT LOGIC
+===================================================== */
+const productPrice = 370;
+const insideFeni = 60;
+const outsideFeni = 135;
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsAW_22aC4HRvWik_kmM48pwwhHY8PdOP7KXEaD1uzoTa7oq6i45oGCijylXKkHwDx2Q/exec";
+
+function increaseQty() {
+  const quantity = document.getElementById("quantity");
+  quantity.value = (parseInt(quantity.value) || 1) + 1;
+  updateTotal();
+}
+
+function decreaseQty() {
+  const quantity = document.getElementById("quantity");
+  if ((parseInt(quantity.value) || 1) > 1) {
+    quantity.value = parseInt(quantity.value) - 1;
+  }
+  updateTotal();
+}
+
+function updateTotal() {
+  let quantity = parseInt(document.getElementById("quantity").value) || 1;
+  if (quantity < 1) { 
+    quantity = 1; 
+    document.getElementById("quantity").value = 1; 
+  }
+
+  const area = document.getElementById("area").value;
+  let delivery = 0;
+
+  if (area === "Inside Feni") {
+    delivery = insideFeni;
+    document.getElementById("deliveryText").innerText = "Delivery charge: ৳60";
+  } else if (area === "Outside Feni") {
+    delivery = outsideFeni;
+    document.getElementById("deliveryText").innerText = "Delivery charge: ৳135";
+  } else {
+    document.getElementById("deliveryText").innerText = "Delivery charge will be added after selecting area.";
+  }
+
+  const totalProductPrice = productPrice * quantity; 
+  const finalTotal = totalProductPrice + delivery; 
+
+  document.getElementById("total").innerText = finalTotal;
+}
+
+document.getElementById("area").addEventListener("change", updateTotal);
+
+/* =====================================================
+   POLICY POPUP & ORDER LOGIC
+===================================================== */
+let pendingOrderData = null; // অর্ডারের তথ্য টেম্পোরারি ধরে রাখার জন্য
+
+function placeOrder() {
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const area = document.getElementById("area").value;
+  const color = document.getElementById("color").value;
+  const quantity = parseInt(document.getElementById("quantity").value) || 1;
+  const total = parseInt(document.getElementById("total").innerText) || 0;
+
+  // ভ্যালিডেশন চেক
+  if (!name) { alert("Please enter your name."); return; }
+  if (!phone) { alert("Please enter your phone number."); return; }
+  if (!address) { alert("Please enter your delivery address."); return; }
+  if (!area) { alert("Please select delivery area."); return; }
+
+  // তথ্যগুলো অবজেক্ট আকারে সেভ করে রাখা
+  pendingOrderData = { name, phone, address, area, product: "Diamond Bracelet", color, quantity, total };
+
+  // পলিসি পপ-আপ ওপেন করা
+  document.getElementById("policyPopup").classList.add("active");
+}
+
+function closePolicyPopup() {
+  document.getElementById("policyPopup").classList.remove("active");
+  pendingOrderData = null;
+}
+
+function confirmAndSubmitOrder() {
+  // পপ-আপ বন্ধ করা
+  document.getElementById("policyPopup").classList.remove("active");
+
+  if (!pendingOrderData) return;
+
+  const button = document.querySelector(".order-btn");
+  button.disabled = true;
+  button.innerText = "Processing Order...";
+
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = SCRIPT_URL;
+  form.target = "hiddenFrame";
+  form.style.display = "none";
+
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = "data";
+  input.value = JSON.stringify(pendingOrderData);
+
+  form.appendChild(input);
+  document.body.appendChild(form);
+  form.submit();
+
+  setTimeout(() => {
+    alert("✅ Order submitted successfully!\n\nআপনার order আমাদের কাছে সফলভাবে জমা হয়েছে।");
+    
+    // ফর্ম রিসেট করা
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("quantity").value = 1;
+    document.getElementById("area").value = "";
+    
+    updateTotal();
+    button.disabled = false;
+    button.innerText = "🛒 ORDER NOW";
+    form.remove();
+    pendingOrderData = null;
+  }, 1500);
+}
+</script>
+<!-- SHOPPING POLICY POPUP MODAL -->
+  <div class="popup-overlay" id="policyPopup">
+    <div class="popup-box">
+      <h3>🛍️ শপিং ও রিটার্ন পলিসি</h3>
+      <div class="policy-content">
+        <p><strong>১. ডেলিভারি চার্জ:</strong> ফেনীর ভেতরে ৬০ টাকা এবং ফেনীর বাইরে সমগ্র বাংলাদেশে ১৩৫ টাকা (স্টেডফাস্ট কুরিয়ার) প্রযোজ্য।</p><br>
+        <p><strong>২. পণ্য চেক করে নেওয়ার সুযোগ:</strong> ডেলিভারি ম্যানের সামনে পণ্য চেক করে বুঝে নিতে হবে। কোনো ত্রুটি বা সমস্যা থাকলে ডেলিভারি ম্যানের মাধ্যমেই রিটার্ন করতে পারবেন।</p><br>
+        <p><strong>৩. ক্যাশ অন ডেলিভারি:</strong> অর্ডার কনফার্ম করার পর আপনার দেওয়া ঠিকানায় পণ্য পৌঁছে দেওয়া হবে এবং ক্যাশ অন ডেলিভারিতে মূল্য পরিশোধ করতে হবে।</p><br>
+        <p><strong>৪. তথ্য সুরক্ষা:</strong> আপনার দেওয়া নাম, ফোন নম্বর এবং ঠিকানা সম্পূর্ণ সুরক্ষিত থাকবে এবং শুধুমাত্র ডেলিভারির কাজে ব্যবহার করা হবে।</p>
+      </div>
+      <div class="popup-actions">
+        <button type="button" class="popup-btn btn-cancel" onclick="closePolicyPopup()">ফিরে যান</button>
+        <button type="button" class="popup-btn btn-agree" onclick="confirmAndSubmitOrder()">I Agree & Order</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
