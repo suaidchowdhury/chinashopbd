@@ -608,15 +608,10 @@
     @keyframes diamondGlow {
       0% {
         transform: scale(1);
-        text-shadow: 0 0 2px rgba(0, 191, 255, 0.4), 
-                     0 0 5px rgba(0, 191, 255, 0.2);
-      }
+}
       100% {
         transform: scale(1.15);
-        text-shadow: 0 0 10px rgba(0, 191, 255, 0.9), 
-                     0 0 20px rgba(135, 206, 250, 0.8), 
-                     0 0 30px rgba(255, 255, 255, 0.6);
-      }
+}
     }
 
     /* SHOPPING POLICY POPUP STYLES */
@@ -834,11 +829,9 @@
 
 @keyframes textPop {
     0%, 100% {
-        text-shadow: 0 2px 0 rgba(255, 255, 255, 0), 0 5px 16px rgba(255, 23, 69, 0);
-    }
+}
     50% {
-        text-shadow: 0 2px 0 rgba(255, 255, 255, 0), 0 7px 24px rgba(41, 120, 255, 0);
-    }
+}
 }
 
 body {
@@ -882,7 +875,6 @@ header {
 .faq-title,
 .order-box h2,
 .popup-box h3 {
-    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8), 0 5px 16px rgba(255, 23, 68, 0.2);
 }
 
 .register-btn,
@@ -939,6 +931,29 @@ input,
 }
 
 </style>
+
+<style>
+@keyframes diamondEmojiGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(255,255,255,.7))
+           drop-shadow(0 0 5px rgba(80,180,255,.55));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(255,255,255,1))
+           drop-shadow(0 0 12px rgba(80,180,255,.9))
+           drop-shadow(0 0 20px rgba(180,220,255,.65));
+    transform: scale(1.08);
+  }
+}
+
+.diamond-emoji-glow {
+  display: inline-block;
+  animation: diamondEmojiGlow 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+</style>
+
 </head>
 
 <body>
@@ -992,7 +1007,7 @@ input,
 
     <!-- PRODUCT INFORMATION & ORDER FORM -->
     <div class="product-info">
-      <h1>DIAMOND BRACELET <sup><span class="glow-diamond">💎</span></sup></h1>
+      <h1>DIAMOND BRACELET <sup><span class="glow-diamond"><span class="diamond-emoji-glow">💎</span></span></sup></h1>
 <!-----------------------------------------------------PRICE----------------------------------------------------->
       <div class="price">
         ৳1999
@@ -1013,7 +1028,7 @@ input,
             পার্টি, আড্ডা কিংবা দৈনন্দিন ফ্যাশনের জন্য দারুণ একটি অ্যাক্সেসরি।
           </p> <br>
 
-          <h3>💎 পণ্যের বৈশিষ্ট্য</h3>
+          <h3><span class="diamond-emoji-glow">💎</span> পণ্যের বৈশিষ্ট্য</h3>
           <ul>
             <li>✨ সম্পূর্ণ ক্রিস্টাল স্টোন ডিজাইন</li>
             <li>⛓️ স্টাইলিশ Cuban Chain Design</li>    
