@@ -106,6 +106,17 @@
       font-size: 20px;
       color: #000;
       letter-spacing: 0.5px;
+      animation: brandFloat 4.5s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes brandFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
     }
 
     /* লোগো ইমেজ স্টাইল */
@@ -796,6 +807,137 @@
     letter-spacing: 0.5px;
 }
 
+/* Animated rainbow theme */
+@keyframes rainbowShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes rainbowColor {
+    0%, 100% { color: #ff1744; }
+    16% { color: #ff9100; }
+    33% { color: #00a8ce; }
+    50% { color: #00c853; }
+    66% { color: #2979ff; }
+    83% { color: #d500f9; }
+}
+
+@keyframes rainbowBorder {
+    0%, 100% { border-color: #ff1744; }
+    16% { border-color: #ff9100; }
+    33% { border-color: #00a8ce; }
+    50% { border-color: #00c853; }
+    66% { border-color: #2979ff; }
+    83% { border-color: #d500f9; }
+}
+
+@keyframes textPop {
+    0%, 100% {
+        text-shadow: 0 2px 0 rgba(255, 255, 255, 0), 0 5px 16px rgba(255, 23, 69, 0);
+    }
+    50% {
+        text-shadow: 0 2px 0 rgba(255, 255, 255, 0), 0 7px 24px rgba(41, 120, 255, 0);
+    }
+}
+
+body {
+    background: linear-gradient(135deg, #fff5f7, #fffbea, #effff7, #eef5ff, #fbf0ff);
+    background-size: 400% 400%;
+    animation: fadeInPage 0.8s ease-out, rainbowShift 18s ease infinite;
+}
+
+body::before {
+    background: linear-gradient(135deg, #ff4081 0%, #7c4dff 48%, #00e5ff 100%);
+    background-size: 200% 200%;
+    animation: floatBlob 8s ease-in-out infinite alternate, rainbowShift 9s ease infinite;
+}
+
+body::after {
+    background: linear-gradient(135deg, #00e676 0%, #ffea00 48%, #ff3d00 100%);
+    background-size: 200% 200%;
+    animation: floatBlob 10s ease-in-out infinite alternate-reverse, rainbowShift 11s ease infinite;
+}
+
+header {
+    border-bottom-color: #ff1744;
+    animation: rainbowBorder 8s linear infinite;
+}
+
+.brand span,
+.product-info h1,
+.price,
+.accordion-header,
+.faq-title,
+.faq-question,
+.order-box h2,
+.total span,
+.popup-box h3 {
+    animation: rainbowColor 8s linear infinite, textPop 2.8s ease-in-out infinite;
+}
+
+.brand span,
+.product-info h1,
+.price,
+.faq-title,
+.order-box h2,
+.popup-box h3 {
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8), 0 5px 16px rgba(255, 23, 68, 0.2);
+}
+
+.register-btn,
+.order-btn,
+.btn-agree {
+    background: linear-gradient(115deg, #ff1744, #ff9100, #ffd600, #00c853, #2979ff, #d500f9, #ff1744);
+    background-size: 300% 300%;
+    animation: rainbowShift 8s ease infinite, pulseGlow 2.5s infinite;
+}
+
+.order-btn:hover,
+.register-btn:hover,
+.btn-agree:hover {
+    background: linear-gradient(115deg, #d500f9, #2979ff, #00c853, #ffd600, #ff9100, #ff1744);
+    background-size: 300% 300%;
+}
+
+.nav-btn,
+.quantity button {
+    color: #ff1744;
+    animation: rainbowColor 8s linear infinite;
+}
+
+.nav-btn:hover,
+.quantity button:hover {
+    background: linear-gradient(135deg, #ff1744, #7c4dff, #00e5ff);
+    background-size: 200% 200%;
+    animation: rainbowShift 4s ease infinite;
+}
+
+.accordion,
+.faq-item,
+select,
+input,
+.order-box,
+.total-box,
+.popup-box {
+    animation: rainbowBorder 10s linear infinite;
+}
+
+.dot.active {
+    background: linear-gradient(90deg, #ff1744, #ffd600, #00c853, #2979ff, #d500f9);
+    background-size: 250% 100%;
+    animation: rainbowShift 5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
 </style>
 </head>
 
@@ -851,10 +993,10 @@
     <!-- PRODUCT INFORMATION & ORDER FORM -->
     <div class="product-info">
       <h1>DIAMOND BRACELET <sup><span class="glow-diamond">💎</span></sup></h1>
-
+<!-----------------------------------------------------PRICE----------------------------------------------------->
       <div class="price">
-        ৳5000
-        <span class="old-price">৳7050</span>
+        ৳399
+        <span class="old-price">৳820</span>
       </div>
 
       <!-- ACCORDION -->
@@ -961,7 +1103,7 @@
         </div>
 
         <div class="total-box">
-          <div class="total">Total: ৳<span id="total">370</span></div>
+          <div class="total">Total: ৳<span id="total"> 399 </span></div>
           <div class="delivery-info" id="deliveryText">Delivery charge will be added after selecting area.</div>
         </div>
 
@@ -1038,7 +1180,7 @@ function toggleFaq(element) {
   }
 }
 
-const productPrice = 5000;
+const productPrice = 399;
 const insideFeni = 60;
 const outsideFeni = 135;
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsAW_22aC4HRvWik_kmM48pwwhHY8PdOP7KXEaD1uzoTa7oq6i45oGCijylXKkHwDx2Q/exec";
